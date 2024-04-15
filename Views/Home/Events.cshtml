@@ -1,1 +1,70 @@
-﻿<p>Užsiėmimai, vykstantis netoliese:</p>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <label for="filterDropdown">Filtruoti pagal miestą:</label>
+        <select id="filterDropdown">
+            <option value="all">Visi</option>
+            <option value="Kaunas">Kaunas</option>
+            <option value="Vilnius">Vilnius</option>
+            <option value="Klaipėda">Klaipėda</option>
+            <option value="Panevėžys">Panevėžys</option>
+        </select>
+        <table id="myTable" border="0" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="width:50%">Užsiėmimas</th>
+                    <th style="width:40%">Organizatoriaus kontaktai</th>
+                    <th style="width:10%">Miestas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Yoga parke</td>
+                    <td>Korneliuzas, 112</td>
+                    <td>Kaunas</td>
+                </tr>
+                <tr>
+                    <td>Ekstremalūs šachmatai</td>
+                    <td>Timonas, timonas@ktu.lt</td>
+                    <td>Vilnius</td>
+                </tr>
+                <tr>
+                    <td>Pieno gėrimo varžybos</td>
+                    <td>Titas</td>
+                    <td>Klaipėda</td>
+                </tr>
+                <tr>
+                    <td>Jodinėjimas ant stručių</td>
+                    <td>emil111</td>
+                    <td>Kaunas</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#filterDropdown').change(filterTable);
+        });
+
+        function filterTable() {
+            var filterValue = $('#filterDropdown').val().toUpperCase();
+
+            $('#myTable tbody tr').each(function () {
+                var location = $(this).find('td:eq(2)').text().toUpperCase();
+
+                var shouldShow = filterValue === 'ALL' || location === filterValue;
+                $(this).toggle(shouldShow);
+            });
+        }
+    </script>
+</body>
+</html>
