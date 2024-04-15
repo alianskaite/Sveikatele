@@ -1,0 +1,60 @@
+﻿@model IEnumerable<tp_sveikatele.Models.Post>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>Bendruomenės įrašai</h1>
+
+    <!-- Add the form for creating a post -->
+    <h2>Sukurti naują įrašą</h2>
+    <form asp-controller="Community" asp-action="Create" method="post">
+        <div>
+            <label>Pavadinimas/tema:</label>
+            <input type="text" name="Title" required />
+        </div>
+        <div>
+            <label>Turinys:</label>
+            <textarea name="Content" rows="4" required></textarea>
+        </div>
+        <div>
+            <label>Autorius:</label>
+            <input type="text" name="Author" required />
+        </div>
+        <div>
+            <label>Data:</label>
+            <input type="date" name="CreationDate" required />
+        </div>
+        <div>
+            <button type="submit">Paskelbti</button>
+        </div>
+    </form>
+
+    <hr />
+
+    <!-- Display existing posts -->
+    @foreach (var post in Model)
+    {
+        <div>
+            <h2>@post.Title</h2>
+            <p>@post.Content</p>
+            <p>Author: @post.Author</p>
+            <p>Creation Date: @post.CreationDate</p>
+
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = post.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = post.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = post.Id })
+            </p>
+        </div>
+        <hr />
+    }
+</body>
+</html>
