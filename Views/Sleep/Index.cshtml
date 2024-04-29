@@ -1,0 +1,168 @@
+﻿@using System.Globalization
+@model IEnumerable<tp_sveikatele.Models.SleepL>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable Table</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<h3>Jūsų miego suvestinė</h3>
+<div class="main-content-lst">
+	<table class="entity-list">
+		<thead>
+			<tr>
+				<th style="width: 150px;">
+					@Html.DisplayNameFor(model => model.Start)
+				</th>
+				<th style="width: 150px">
+					@Html.DisplayNameFor(model => model.End)
+				</th>
+				<th style="width: 150px;">
+					@Html.DisplayNameFor(model => model.Duration)
+				</th>
+				<th style="width: 150px;">
+					@Html.DisplayNameFor(model => model.Rating)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>
+						@{
+							var start = item.Start.ToString("MM-dd HH:mm", CultureInfo.InvariantCulture);
+							var end = item.End.ToString("MM-dd HH:mm", CultureInfo.InvariantCulture);
+						}
+						@Html.DisplayFor(model => start)
+					</td>
+					<td>
+						@Html.DisplayFor(model => end)
+					</td>
+					<td>
+						@Html.DisplayFor(model => item.Duration)
+					</td>
+					<td>
+						@{
+							var rating = new String('★', item.Rating);
+						}
+						@Html.DisplayFor(model => rating)
+					</td>
+					<td><button onclick="openEditModal(this, '@(item.Start)', '@(item.End)')" class="nav-link btn btn-outline-primary">Redaguoti</button></td>
+				</tr>
+			}
+			<a class="nav-link btn btn-outline-primary" href="#" data-bs-toggle="modal" data-bs-target="#sleepModal">Pridėti</a>
+		</tbody>
+	</table>
+</div>
+
+<div class="modal fade" id="sleepModal" tabindex="-1" aria-labelledby="sleepModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="sleepModalLabel">Pridėti įrašą</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form method="post" action="/Sleep/Create">
+					<div class="mb-3">
+						<label for="start" class="form-label">Pradžia:</label>
+						<input type="datetime-local" class="form-control" id="start" name="start" required>
+					</div>
+					<div class="mb-3">
+						<label for="end" class="form-label">Pabaiga:</label>
+						<input type="datetime-local" class="form-control" id="end" name="end" required>
+					</div>
+					<div class="mb-3">
+						<input type="radio" id="html" name="rating" value="5">
+						<label for="html">★★★★★ - puikus miegas</label><br>
+						<input type="radio" id="css" name="rating" value="4">
+						<label for="css">★★★★ - šiaip gerai, tik katinas triukšmavo</label><br>
+						<input type="radio" id="javascript" name="rating" value="3">
+						<label for="javascript">★★★ - OK</label><br>
+						<input type="radio" id="javascript" name="rating" value="2">
+						<label for="javascript">★★ - prastai</label><br>
+						<input type="radio" id="javascript" name="rating" value="1">
+						<label for="javascript">★ - visai nemiegojau, kankino algorai</label>
+					</div>
+					<button type="submit" class="btn btn-primary">Pridėti</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="sleepEditModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="sleepModalLabel">Redaguoti įrašą</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+					<div class="mb-3">
+						<label for="startEdit" class="form-label">Pradžia:</label>
+						<input type="datetime-local" class="form-control" id="startEdit" name="start" required>
+					</div>
+					<div class="mb-3">
+						<label for="endEdit" class="form-label">Pabaiga:</label>
+						<input type="datetime-local" class="form-control" id="endEdit" name="end" required>
+					</div>
+					<div class="mb-3">
+						<input type="radio" id="5" name="rating" value="5">
+						<label for="five">★★★★★ - puikus miegas</label><br>
+						<input type="radio" id="4" name="rating" value="4">
+						<label for="four">★★★★ - šiaip gerai, tik katinas triukšmavo</label><br>
+						<input type="radio" id="3" name="rating" value="3">
+						<label for="three">★★★ - OK</label><br>
+						<input type="radio" id="2" name="rating" value="2">
+						<label for="two">★★ - prastai</label><br>
+						<input type="radio" id="1" name="rating" value="1">
+						<label for="one">★ - visai nemiegojau, kankino algorai</label>
+					</div>
+					<button type="submit" class="btn btn-primary">Išsaugoti pakeitimus</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Function to open the edit modal
+	function openEditModal(button, start, end) {
+		var row = button.parentNode.parentNode; // Get the row
+		var cells = row.getElementsByTagName("td"); // Get all cells in the row
+		var rating = cells[3].innerText;
+
+		var formattedStart = start.replace(' ', 'T').slice(0, 16); // Format: YYYY-MM-DDTHH:MM
+		var formattedEnd = end.replace(' ', 'T').slice(0, 16);
+
+		// Populate the modal form fields with the values
+		document.getElementById("startEdit").value = formattedStart;
+		document.getElementById("endEdit").value = formattedEnd;
+		document.getElementById(rating.length).checked = true;
+
+		// Display the modal
+		var myModal = new bootstrap.Modal(document.getElementById("sleepEditModal"), {});
+		myModal.show();
+	}
+
+	// Function to close the edit modal
+	function closeEditModal() {
+		var myModal = new bootstrap.Modal(document.getElementById("sleepEditModal"), {});
+	}
+
+	// Function to handle form submission (you can customize this according to your needs)
+	document.getElementById("sleepEditModal").onsubmit = function (event) {
+		// Prevent the default form submission
+		event.preventDefault();
+
+		// Here you can handle the form submission, for example, update the row with the new values
+		// For demonstration purposes, let's just close the modal
+		closeEditModal();
+	};
+</script>

@@ -1,9 +1,57 @@
-﻿@{
-    ViewData["Title"] = "Apie mus";
-}
-
-<div class="text-center">
+﻿<div class="text-center">
     <h1 class="display-4">Apie mus</h1>
 </div>
 <p>Mes esame Kauno technologijos universiteto studentai - Gabija ir Kornelija, Emilis, Timonas ir Titas. Visi mėgstame aktyvų laisvalaikį. Pagalvojome, kad būtų šaunu, jeigu egzistuotų svetainė, kurioje galėtume žymėti ir sekti savo sportiškas veiklas. Taip gimė idėja šiai svetainei. Tikimės, kad ši svetainė bus naudinga ne tik mums, bet ir visai sporto entuziastų bendruomenei.</p>
 
+<style>
+    .image-container {
+        display: flex;
+        align-items: center; /* Align items vertically */
+        justify-content: center; /* Align items horizontally */
+        flex-wrap: wrap; /* Allow items to wrap */
+    }
+
+    .rounded-image {
+        width: 150px; /* Adjust as needed */
+        height: 150px; /* Adjust as needed */
+        border-radius: 50%; /* Makes the image round */
+        margin: 20px; /* Adjust spacing between images */
+    }
+
+    .image-text {
+        text-align: center;
+    }
+</style>
+
+<div class="image-container">
+    <div>
+        <div class="image-text">
+            <h6>Emilis Vaicieka</h6>
+        </div>
+        <img src="~/images/emilis.png" alt="Image 1" class="rounded-image">
+    </div>
+    <div>
+        <div class="image-text">
+            <h6>Gabija Alianskaitė</h6>
+        </div>
+        <img src="~/images/gabija.png" alt="Image 2" class="rounded-image">
+    </div>
+    <div>
+        <div class="image-text">
+            <h6>Kornelija Daukintytė</h6>
+        </div>
+        <img src="~/images/kornelija.png" alt="Image 3" class="rounded-image">
+    </div>
+    <div>
+        <div class="image-text">
+            <h6>Timonas Krasauskas</h6>
+        </div>
+        <img src="~/images/timonas.png" alt="Image 4" class="rounded-image">
+    </div>
+    <div>
+        <div class="image-text">
+            <h6>Titas Jermakovas</h6>
+        </div>
+        <img src="~/images/titas.png" alt="Image 5" class="rounded-image">
+    </div>
+</div>
