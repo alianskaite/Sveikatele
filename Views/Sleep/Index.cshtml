@@ -1,4 +1,5 @@
-﻿@model IEnumerable<tp_sveikatele.Models.SleepL>
+﻿@using System.Globalization
+@model IEnumerable<tp_sveikatele.Models.SleepL>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,8 +36,8 @@
 				<tr>
 					<td>
 						@{
-							var start = new String(item.Start.Month.ToString().PadLeft(2, '0') + "-" + item.Start.Day + " " + item.Start.Hour + ":" + item.Start.Minute);
-							var end = new String(item.End.Month.ToString().PadLeft(2, '0') + "-" + item.End.Day + " " + item.End.Hour + ":" + item.End.Minute);
+							var start = item.Start.ToString("MM-dd HH:mm", CultureInfo.InvariantCulture);
+							var end = item.End.ToString("MM-dd HH:mm", CultureInfo.InvariantCulture);
 						}
 						@Html.DisplayFor(model => start)
 					</td>
