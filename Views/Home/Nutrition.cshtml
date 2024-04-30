@@ -1,0 +1,92 @@
+@{
+    ViewData["Title"] = "";
+}
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="row">
+    <!-- Interactive day calendar -->
+    <div class="col-12 mb-4">
+        <div class="calendar-container">
+            <!-- Left arrow button -->
+            <button class="arrow left-arrow" id="prev-btn">&lt;</button>
+            <!-- Calendar -->
+            <div class="calendar">
+                <!-- Days will be populated dynamically -->
+                @for (int i = 1; i <= 31; i++) // For demonstration, populate 31 days
+                {
+                    <div class="day @(i == 16 ? "today" : "")"> <!-- Always set today's date in the middle (16th day of the month) -->
+                        @if (i == 16)
+                        {
+                            <div class="date">@DateTime.Today.ToString("MMMM dd")</div> <!-- Display today's date with month -->
+                        }
+                        else
+                        {
+                            <div class="date">@DateTime.Today.AddDays(i - 16).ToString("MMMM dd")</div> <!-- Display other dates with month -->
+                        }
+                        <!-- Adjusted date format to include month (for example "April 15") -->
+                    </div>
+                }
+            </div>
+            <!-- Right arrow button -->
+            <button class="arrow right-arrow" id="next-btn">&gt;</button>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <button class="btn btn-success" id="add-meal-btn" style="width: 30%;">Add Meal</button>
+</div>
+
+<div class="modal" id="add-meal-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Meal</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="food-type">Food Type:</label>
+                    <input type="text" class="form-control" id="food-type">
+                </div>
+                <div class="form-group">
+                    <label for="calories">Calories:</label>
+                    <input type="number" class="form-control" id="calories">
+                </div>
+                <div class="form-group">
+                    <label for="mass">Mass (g):</label>
+                    <input type="number" class="form-control" id="mass">
+                </div>
+                <div class="form-group">
+                    <label for="meal-type">Meal Type:</label>
+                    <select class="form-control" id="meal-type">
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="save-meal-btn">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="meal-info">
+    <!-- Meal information squares will be added dynamically -->
+</div>
+
+@section scripts {
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/calendar.js"></script>
+}

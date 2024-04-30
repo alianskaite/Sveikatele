@@ -1,0 +1,76 @@
+.calendar-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of calendar days */
+    -ms-overflow-style: none; /* Hide scrollbar in IE */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.calendar-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers */
+}
+
+.calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap; /* Prevent wrapping of calendar days */
+    margin-left: 20px; /* Add some margin to the left side */
+    margin-right: 20px; /* Add some margin to the right side */
+}
+
+.day {
+    width: 220px; /* Width of each square */
+    height: 500px; /* Height of each square */
+    display: inline-flex; /* Use inline-flex to allow wrapping */
+    flex-shrink: 0; /* Prevent squares from shrinking */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Minimalistic font */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5); /* Shadow effect to bottom right */
+    overflow: hidden; /* Hide overflow text */
+    position: relative; /* Position relative for absolute positioning of date */
+    margin: 10px; /* Add margin for spacing between rectangles */
+    font-size: 24px; /* Adjust the font size as needed */
+    user-select: none; 
+}
+
+.day.hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    
+}
+
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1;
+    color: #000;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.left-arrow, .right-arrow {
+    position: absolute; /* Set absolute positioning */
+    top: 40%; /* Align vertically to the middle */
+    transform: translateY(-50%); /* Adjust for vertical alignment */
+    background-color: transparent; /* Remove background color */
+    border: none; /* Remove border */
+    font-size: 50px; /* Adjust font size */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.left-arrow {
+    left: -100px; /* Set distance from the left */
+}
+
+.right-arrow {
+    right: -100px; /* Set distance from the right */
+}
+.selected {
+    outline: 3px solid blue; /* or any other outline style */
+}
