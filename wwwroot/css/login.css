@@ -3,6 +3,10 @@
     margin: 0;
     display: flex;
     flex-direction: column;
+    background: url('/images/vege.png') no-repeat center center/cover;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional */
 }
 
 header, footer {
@@ -17,9 +21,6 @@ main {
 }
 
 .bg-login {
-    background: url('/images/vege.png') no-repeat center center/cover;
-    background-size: cover;
-    background-position: center;
     position: absolute;
     top: 0;
     left: 0;
