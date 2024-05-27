@@ -6,7 +6,18 @@
 
 <head>
     <style>
-        h2 {
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background: url('/images/vege.png') no-repeat center center/cover;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Optional */
+        }
+
+        h1, h2, h3, h4, h5, h6, p, .text-white {
             color: white;
         }
 
@@ -20,8 +31,16 @@
             margin-top: 10px;
         }
 
+        .form-group label {
+            color: white;
+        }
+
+        .form-group input {
+            color: black; /* Ensures the input text is readable */
+        }
+
         .form-group {
-            color: black;
+            color: white; /* Ensures the label and text within form groups are white */
         }
     </style>
 </head>
