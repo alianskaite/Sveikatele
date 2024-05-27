@@ -4,5 +4,6 @@ namespace tp_sveikatele.Models
 {
     public class ApplicationUser : IdentityUser
     {
+
     }
 }
