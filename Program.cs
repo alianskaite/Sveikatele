@@ -1,4 +1,12 @@
+
+using Microsoft.EntityFrameworkCore;
+using System;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("AppDbConnectionString");
+
+builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -25,3 +33,5 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
