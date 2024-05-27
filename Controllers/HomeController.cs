@@ -15,7 +15,7 @@ namespace tp_sveikatele.Controllers
 
         public IActionResult Index()
         {
-            return View("./Views/Home/Index.cshtml");
+            return View();
         }
 
         public IActionResult Privacy()
