@@ -1,11 +1,15 @@
+@model tp_sveikatele.DTOS.AddTrainingDTO
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <head>
     <style>
-        h2{
-            color:white;
+        h2 {
+            color: white;
         }
+
         .container {
             position: relative;
             z-index: 1;
@@ -16,22 +20,20 @@
             margin-top: 10px;
         }
 
-        .form-group{
+        .form-group {
             color: black;
         }
     </style>
 </head>
 
-
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="text-center mb-4">Įveskite savo pratimo detales</h2>
-                <form asp-action="SaveWorkout" method="post">
+            <form asp-action="Create" method="post">
                 <div class="form-group">
                     <label for="exercise" class="font-weight-bold">Pratimas:</label>
-                    <select class="form-control" id="exercise" name="exercise" required>
+                    <select class="form-control" id="exercise" name="Pratimas" required>
                         <option value="">Pasirinkite pratimą</option>
                         <option value="Squats">Pritūpimai</option>
                         <option value="Bench Press">Presas ant suoliuko</option>
@@ -42,15 +44,15 @@
                 </div>
                 <div class="form-group">
                     <label for="weight" class="font-weight-bold">Naudotas svoris: (kg)</label>
-                    <input type="number" class="form-control" id="weight" name="weight" required>
+                    <input type="number" class="form-control" id="weight" name="Svoris" required>
                 </div>
                 <div class="form-group">
                     <label for="sets" class="font-weight-bold">Setai:</label>
-                    <input type="number" class="form-control" id="sets" name="sets" required>
+                    <input type="number" class="form-control" id="sets" name="Setai" required>
                 </div>
                 <div class="form-group">
                     <label for="reps" class="font-weight-bold">Pakartojimai:</label>
-                    <input type="number" class="form-control" id="reps" name="reps" required>
+                    <input type="number" class="form-control" id="reps" name="Pakartojimai" required>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block save-btn">Išsaugoti</button>

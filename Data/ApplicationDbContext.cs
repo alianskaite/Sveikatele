@@ -10,5 +10,8 @@ namespace tp_sveikatele.Data
             : base(options)
         {
         }
+
+        public DbSet<Training> Trainings { get; set; }
+
     }
 }
