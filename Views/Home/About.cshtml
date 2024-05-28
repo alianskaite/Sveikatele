@@ -1,14 +1,45 @@
-﻿<div class="text-center">
+﻿<div class="text-center text-white">
     <h1 class="display-4">Apie mus</h1>
 </div>
-<p>Mes esame Kauno technologijos universiteto studentai - Gabija ir Kornelija, Emilis, Timonas ir Titas. Visi mėgstame aktyvų laisvalaikį. Pagalvojome, kad būtų šaunu, jeigu egzistuotų svetainė, kurioje galėtume žymėti ir sekti savo sportiškas veiklas. Taip gimė idėja šiai svetainei. Tikimės, kad ši svetainė bus naudinga ne tik mums, bet ir visai sporto entuziastų bendruomenei.</p>
-
+<p class="text-white">
+    Mes esame Kauno technologijos universiteto studentai - Gabija ir Kornelija, Emilis, Timonas ir Titas. Visi mėgstame aktyvų laisvalaikį. Pagalvojome, kad būtų šaunu, jeigu egzistuotų svetainė, kurioje galėtume žymėti ir sekti savo sportiškas veiklas. Taip gimė idėja šiai svetainei. Tikimės, kad ši svetainė bus naudinga ne tik mums, bet ir visai sporto entuziastų bendruomenei.
+</p>
 <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background: url('/images/vege.png') no-repeat center center/cover;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Optional */
+    }
+
+    header, footer {
+        width: 100%;
+    }
+
+    main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 160px; /* Adjust padding as needed */
+    }
+
     .image-container {
         display: flex;
+        width: 100%;
         align-items: center; /* Align items vertically */
         justify-content: center; /* Align items horizontally */
         flex-wrap: wrap; /* Allow items to wrap */
+        padding: 20px;
+        margin: 20px;
+        background-color: #f8f9fa; /* Optional: Add background color */
+        border-radius: 10px; /* Optional: Add border radius for rounded corners */
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for better look */
     }
 
     .rounded-image {
@@ -20,7 +51,11 @@
 
     .image-text {
         text-align: center;
+        margin-top: 10px;
+        font-size: 16px;
     }
+
+
 </style>
 
 <div class="image-container">

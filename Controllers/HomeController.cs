@@ -4,8 +4,13 @@ using tp_sveikatele.Models;
 
 namespace tp_sveikatele.Controllers
 {
+
     public class HomeController : Controller
     {
+        public IActionResult SpinWheel()
+        {
+            return View();
+        }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -15,7 +20,7 @@ namespace tp_sveikatele.Controllers
 
         public IActionResult Index()
         {
-            return View("./Views/Home/Index.cshtml");
+            return View();
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Spin the Wheel";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Suk ratą ir sužinok savo dienos motyvaciją</h1>
+    <iframe src="https://giphy.com/embed/SgHewLfFq8Hg5YEb26" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+    <button id="spinButton" class="btn btn-primary mt-3 spin-button">Sukti</button>
+    <div id="quoteDisplay" class="mt-3 quote-display"></div>
+</div>
+
+@section Scripts {
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Define your quotes
+            var quotes = [
+                "Vienintelis būdas atlikti puikų darbą - mylėti tai, ką darai. – Steve Jobs",
+                "Tūkstančio mylių kelionė prasideda nuo vieno žingsnio. – Lao Tzu",
+                "Patikėkite, kad galite, ir jūs jau pusiaukelėje. – Theodore Roosevelt",
+                "Elkitės taip, tarsi tai, ką darote, turėtų reikšmės. Taip ir yra. – William James",
+                "Sėkmė nėra raktas į laimę. Laimė yra raktas į sėkmę. – Albert Schweitzer"
+            ];
+
+            var wheelSpinning = false;
+
+            $('#spinButton').on('click', function () {
+                if (!wheelSpinning) {
+                    // Simulate spinning wheel by delaying quote display
+                    $('#spinButton').prop('disabled', true);
+                    $('.gif').show(); // Show the spinning wheel GIF
+                    setTimeout(function () {
+                        var randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                        $('#quoteDisplay').text(randomQuote);
+                        $('#spinButton').prop('disabled', false);
+                        $('.gif').hide(); // Hide the spinning wheel GIF
+                    }, 3000); // Adjust the delay time as needed
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    .gif {
+        display: none;
+    }
+
+    .quote-display {
+        font-size: 1.5rem; /* Adjust the size as needed */
+        font-weight: bold; /* Make the text bold */
+        color: #333; /* Adjust the color as needed */
+        margin-top: 20px; /* Space between the button and the quote */
+    }
+
+    .spin-button {
+        font-size: 1.5rem; /* Increase the font size */
+        padding: 15px 30px; /* Increase the padding */
+        border-radius: 10px; /* Round the corners more */
+    }
+</style>
