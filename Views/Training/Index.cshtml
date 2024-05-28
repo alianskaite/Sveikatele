@@ -4,104 +4,87 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Summary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            background: url('/images/vege.png') no-repeat center center/cover;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Optional */
-        } */
-
-        h1, h2, h3, h4, h5, p, .text-white {
-            color: black;
+        body {
+            background-color: #f8f9fa;
         }
 
         .container {
-            position: relative;
-            z-index: 1;
+            max-width: 800px;
         }
+
+        .exercise-list {
+            margin-top: 20px;
+        }
+
+        .exercise-item {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .exercise-item p {
+                margin: 5px 0;
+            }
 
         .save-btn {
-            padding: 10px;
-            margin-top: 10px;
-        }
-
-        .form-group label {
-            color: black;
-        }
-
-        .form-group input {
-            color: black; /* Ensures the input text is readable */
-        }
-
-        .form-group {
-            color: black; /* Ensures the label and text within form groups are white */
-        }
-
-        .workout-list {
             margin-top: 20px;
-            color: white;
-        }
-
-        .workout-item {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
         }
     </style>
 </head>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2 class="text-center mb-4">Įveskite savo pratimo detales</h2>
-            <form asp-action="Create" method="post">
-                <div class="form-group">
-                    <label for="exercise" class="font-weight-bold">Pratimas:</label>
-                    <select class="form-control" id="exercise" name="Pratimas" required>
-                        <option value="">Pasirinkite pratimą</option>
-                        <option value="Squats">Pritūpimai</option>
-                        <option value="Bench Press">Presas ant suoliuko</option>
-                        <option value="Deadlifts">Mirties trauka</option>
-                        <option value="Lat Pull">Traukimas žemyn</option>
-                        <option value="Lat Raises">Šoninis svorio kėlimas</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="weight" class="font-weight-bold">Naudotas svoris: (kg)</label>
-                    <input type="number" class="form-control" id="weight" name="Svoris" required>
-                </div>
-                <div class="form-group">
-                    <label for="sets" class="font-weight-bold">Setai:</label>
-                    <input type="number" class="form-control" id="sets" name="Setai" required>
-                </div>
-                <div class="form-group">
-                    <label for="reps" class="font-weight-bold">Pakartojimai:</label>
-                    <input type="number" class="form-control" id="reps" name="Pakartojimai" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block save-btn">Išsaugoti</button>
-                </div>
-            </form>
-
-            <div class="workout-list">
-                <h3 class="text-center" style="color:black">Visi užfiksuoti pratimai: </h3>
-                @foreach (var workout in Model)
-                {
-                    <div class="workout-item">
-                        <p><strong>Pratimas:</strong> @workout.Pratimas</p>
-                        <p><strong>Svoris:</strong> @workout.Svoris kg</p>
-                        <p><strong>Setai:</strong> @workout.Setai</p>
-                        <p><strong>Pakartojimai:</strong> @workout.Pakartojimai</p>
-                    </div>
-                }
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Jūsų treniruočių suvestinė</h2>
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label for="exercise">Pratimas:</label>
+                <select class="form-control" id="exercise" name="Pratimas" required>
+                    <option value="">Pasirinkite pratimą</option>
+                    <option value="Pritūpimai">Pritūpimai</option>
+                    <option value="Presas ant suoliuko">Presas ant suoliuko</option>
+                    <option value="Mirties trauka">Mirties trauka</option>
+                    <option value="Traukimas žemyn">Traukimas žemyn</option>
+                    <option value="Šoninis svorio traukimas">Šoninis svorio traukimas</option>
+                </select>
             </div>
+            <div class="form-group">
+                <label for="weight">Naudoti svoriai, kg:</label>
+                <input type="number" class="form-control" id="weight" name="Svoris" required>
+            </div>
+            <div class="form-group">
+                <label for="sets">Setai:</label>
+                <input type="number" class="form-control" id="sets" name="Setai" required>
+            </div>
+            <div class="form-group">
+                <label for="reps">Pakartojimai:</label>
+                <input type="number" class="form-control" id="reps" name="Pakartojimai" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block save-btn">Išsaugoti</button>
+            </div>
+        </form>
+
+        <div class="exercise-list">
+            <h3 class="text-center">Visi užregistruoti pratimai:</h3>
+            @foreach (var workout in Model)
+            {
+                <div class="exercise-item">
+                    <p><strong>Pratimas:</strong> @workout.Pratimas</p>
+                    <p><strong>Svoris:</strong> @workout.Svoris kg</p>
+                    <p><strong>Setai:</strong> @workout.Setai</p>
+                    <p><strong>Pakartojimai:</strong> @workout.Pakartojimai</p>
+                </div>
+            }
         </div>
     </div>
-</div>
+</body>
+</html>

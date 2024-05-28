@@ -18,17 +18,24 @@ public class TrainingController : Controller
         _userManager = userManager;
     }
 
+
+
     // Action method to navigate to the training page
     public IActionResult Index()
     {
-        // Example data, you would retrieve this from your data source
-        List<AddTrainingDTO> workouts = new List<AddTrainingDTO>
-        {
-            new AddTrainingDTO { Pratimas = "Squats", Svoris = 100, Setai = 3, Pakartojimai = 10 },
-            new AddTrainingDTO { Pratimas = "Bench Press", Svoris = 80, Setai = 4, Pakartojimai = 8 }
-        };
+        // Retrieve the workouts from the database
+        var workouts = _context.Trainings.ToList();
 
-        return View(workouts);
+        // Convert Training objects to AddTrainingDTO objects if necessary
+        var dtoList = workouts.Select(training => new AddTrainingDTO
+        {
+            Pratimas = training.Pratimas,
+            Svoris = training.Svoris,
+            Setai = training.Setai,
+            Pakartojimai = training.Pakartojimai
+        }).ToList();
+
+        return View(dtoList);
     }
 
     // Action method to render the create training form
