@@ -38,11 +38,11 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">Apie mus</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Points" asp-action="Index">Mano taškai</a>
-                            </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Points" asp-action="Index">@User.Identity.Name</a>
+                            </li>
                             <li class="nav-item">
                                 <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
                                     <button type="submit" class="nav-link btn btn-link text-dark">Atsijungti</button>

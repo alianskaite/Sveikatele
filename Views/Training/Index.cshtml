@@ -1,4 +1,4 @@
-@model tp_sveikatele.DTOS.AddTrainingDTO
+@model List<tp_sveikatele.DTOS.AddTrainingDTO>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,7 +6,7 @@
 
 <head>
     <style>
-        body, html {
+        /* body, html {
             height: 100%;
             margin: 0;
             display: flex;
@@ -15,10 +15,10 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Optional */
-        }
+        } */
 
-        h1, h2, h3, h4, h5, h6, p, .text-white {
-            color: white;
+        h1, h2, h3, h4, h5, p, .text-white {
+            color: black;
         }
 
         .container {
@@ -32,7 +32,7 @@
         }
 
         .form-group label {
-            color: white;
+            color: black;
         }
 
         .form-group input {
@@ -40,7 +40,19 @@
         }
 
         .form-group {
-            color: white; /* Ensures the label and text within form groups are white */
+            color: black; /* Ensures the label and text within form groups are white */
+        }
+
+        .workout-list {
+            margin-top: 20px;
+            color: white;
+        }
+
+        .workout-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -77,6 +89,19 @@
                     <button type="submit" class="btn btn-primary btn-block save-btn">Išsaugoti</button>
                 </div>
             </form>
+
+            <div class="workout-list">
+                <h3 class="text-center" style="color:black">Visi užfiksuoti pratimai: </h3>
+                @foreach (var workout in Model)
+                {
+                    <div class="workout-item">
+                        <p><strong>Pratimas:</strong> @workout.Pratimas</p>
+                        <p><strong>Svoris:</strong> @workout.Svoris kg</p>
+                        <p><strong>Setai:</strong> @workout.Setai</p>
+                        <p><strong>Pakartojimai:</strong> @workout.Pakartojimai</p>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>

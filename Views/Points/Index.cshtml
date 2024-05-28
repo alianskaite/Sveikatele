@@ -1,5 +1,13 @@
-﻿@{
+﻿@using tp_sveikatele.Models;
+@{
     ViewData["Title"] = "Total Points";
 }
 
-<h1>Total Points: @ViewBag.TotalPoints</h1>
+<h1 style="text-align:center">Sveiki, @User.Identity.Name</h1>
+<h2 style="align-content:center">Jūsų taškai: @ViewBag.TotalPoints</h2>
+<h6>*taškai skaičiuojami pagal miego vertinimus:</h6>
+<h6 style="margin-left:20px">    5 žvaigždutės = 5 taškai</h6>
+<h6 style="margin-left:20px">    4 žvaigždutės = 4 taškai</h6>
+<h6 style="margin-left:20px">    3 žvaigždutės = 3 taškai</h6>
+<h6 style="margin-left:20px">    2 žvaigždutės = 2 taškai</h6>
+<h6 style="margin-left:20px">    1 žvaigždutė = 1 taškas</h6>
