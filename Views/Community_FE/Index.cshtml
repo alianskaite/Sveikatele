@@ -16,18 +16,18 @@
             background-image: url('/images/vege.png');
         }
 
-       .statement {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 36px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
+        .statement {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 36px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
 
         .background {
             background-size: cover;
@@ -43,18 +43,21 @@
         .content {
             max-width: 850px;
             width: 90%;
-            padding-top: 200px; /* Adjust padding to center posts */
+            padding-top: 150x; /* Adjust padding to center posts */
         }
 
         .post {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.95);
-    transition: transform 0.3s ease; /* Add transition for smooth animation */
-}
-.like-icon {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            transition: transform 0.3s ease; /* Add transition for smooth animation */
+            cursor: pointer;
+            position: relative; /* Ensure like icon is positioned correctly */
+        }
+
+        .like-icon {
             position: absolute;
             bottom: 10px;
             right: 10px;
@@ -66,66 +69,69 @@
             color: #ff4500; /* Change color on hover */
         }
 
-.post:hover {
-    transform: scale(1.02); /* Scale up slightly on hover */
-}
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
+        .post:hover {
+            transform: scale(1.02); /* Scale up slightly on hover */
+        }
 
-.modal-content {
-  background-color: #fff;
-  margin: auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 24px;
-}
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+        }
 
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: none;
-  box-sizing: border-box;
-}
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            box-sizing: border-box;
+        }
 
-button:hover {
-  background-color: #45a049;
-}
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
 
         .post-content {
             text-align: left;
@@ -139,34 +145,34 @@ button:hover {
         .post-content p {
             margin: 5px 0;
         }
-        .add-button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #b9264b;
-    color: white;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.add-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-}
-        
+        .add-button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #b9264b;
+            color: white;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+
         .text {
-    text-align: center;
-    font-size: 65px; /* Increased font size */
-    color: white;
-    font-family: Oswald, sans-serif; /* Minimalistic font */
-    text-transform: uppercase;
-    margin-top: 180px; /* Move it down */
-    line-height: 1.2; /* Adjust line height */
-    
-}
+            text-align: center;
+            font-size: 65px; /* Increased font size */
+            color: white;
+            font-family: Oswald, sans-serif; /* Minimalistic font */
+            text-transform: uppercase;
+            margin-top: 120px; /* Move it down */
+            line-height: 1.2; /* Adjust line height */
+        }
 
         .post-content blockquote {
             margin: 10px 0 0;
@@ -186,108 +192,118 @@ button:hover {
 </head>
 <body>
 
-<h1 class="text">SVEIKATĖLĖ TAI VIENA DIDELĖ ŠEIMA - DALINKIS BEI SUŽINOK KARTU!</h1>
-<button class="add-button" onclick="openModal()">Pridėti įrašą</button>
-
 <div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <textarea id="post-text" placeholder="Įrašo tekstas"></textarea>
-    <button onclick="savePost()">Saugoti</button>
-  </div>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+    </div>
 </div>
+
 <div class="background">
     <div class="content">
-        <!-- Post 1 -->
-        <div class="post">
-            <img src="/images/p1.png" alt="Profile Icon" class="profile-icon">
-            <div class="post-content">
-                <h3>Fitneso Patarimai Pradedantiesiems</h3>
-                <p>
-                    <strong>Autorius:</strong> Jonas Petraitis<br>
-                    <strong>Data:</strong> 2024-05-28
-                </p>
-                <p>Pradėjus sportuoti, svarbu pasirinkti tinkamus pratimus ir laikytis nuoseklaus plano. Šiame įraše aptarsime pagrindinius pratimus ir jų naudą sveikatai...</p>
-                <blockquote>
-                    "Nuoseklumas yra raktas į sėkmę fitnese. Kiekviena treniruotė artina jus prie jūsų tikslo."
-                </blockquote>
-            </div>
-            <!-- Like icon -->
-             <i class="fas fa-heart like-icon" onclick="toggleLike(this)"></i>
-        </div>
-
-        <!-- Post 2 -->
-        <div class="post">
-            <img src="/images/p1.png" alt="Profile Icon" class="profile-icon">
-            <div class="post-content">
-                <h3>Šiek tiek apie subalansuotą mitybą...</h3>
-                <p>
-                    <strong>Autorius:</strong> Monika Kazlauskaitė<br>
-                    <strong>Data:</strong> 2024-05-27
-                </p>
-                <p>Subalansuota mityba yra svarbi ne tik fizinei sveikatai, bet ir gerai savijautai. Šiame įraše sužinosite, kokie maisto produktai turėtų būti jūsų dienos racione...</p>
-                <blockquote>
-                    "Tinkamai parinkti maisto produktai gali pagerinti energijos lygį ir bendrą sveikatą."
-                </blockquote>
-            </div>
-            <!-- Like icon -->
-             <i class="fas fa-heart like-icon" onclick="toggleLike(this)"></i>
-        </div>
-
-        <!-- Post 3 -->
-        <div class="post">
-<img src="/images/p1.png" alt="Profile Icon" class="profile-icon">
-<div class="post-content">
-<h3>Efektyvios Treniruotės Namų Sąlygomis</h3>
-<p>
-<strong>Autorius:</strong> Daiva Urbonienė<br>
-<strong>Data:</strong> 2024-05-26
-</p>
-<p>Neturint galimybės lankytis sporto salėje, galima puikiai treniruotis ir namuose. Šiame įraše rasite įvairių pratimų ir patarimų, kaip išlaikyti fizinę formą namuose...</p>
+       <!-- Post 1 -->
+<div class="post" onclick="openPostModal(this)" data-title="Fitneso Patarimai Pradedantiesiems" data-author="Jonas Petraitis" data-date="2024-05-28" data-fulltext="Pradėjus sportuoti, svarbu pasirinkti tinkamus pratimus ir laikytis nuoseklaus plano. Šiame įraše aptarsime pagrindinius pratimus ir jų naudą sveikatai. Nuoseklumas yra raktas į sėkmę fitnese. Kiekviena treniruotė artina jus prie jūsų tikslo. Taip pat, aptarsime sveiką mitybą kaip dalį sveiko gyvenimo būdo.">
+    <img src="/images/p1.png" alt="Profile Icon" class="profile-icon">
+    <div class="post-content">
+        <h3>Fitneso Patarimai Pradedantiesiems</h3>
+        <p>
+            <strong>Autorius:</strong> Jonas Petraitis<br>
+            <strong>Data:</strong> 2024-05-28
+        </p>
+        <p>Pradėjus sportuoti, svarbu pasirinkti tinkamus pratimus ir laikytis nuoseklaus plano. Šiame įraše aptarsime pagrindinius pratimus ir jų naudą sveikatai...</p>
+        <blockquote>
+            "Nuoseklumas yra raktas į sėkmę fitnese. Kiekviena treniruotė artina jus prie jūsų tikslo."
+        </blockquote>
+        <p><em>Click to read more...</em></p>
+    </div>
+    <!-- Like icon -->
+    <i class="fas fa-heart like-icon" onclick="toggleLike(this, event)"></i>
+</div>
+      <!-- Post 2 -->
+<div class="post" onclick="openPostModal(this)" data-title="Šiek tiek apie subalansuotą mitybą..." data-author="Monika Kazlauskaitė" data-date="2024-05-27" data-fulltext="Subalansuota mityba yra svarbi ne tik fizinei sveikatai, bet ir gerai savijautai. Šiame įraše sužinosite, kokie maisto produktai turėtų būti jūsų dienos racione. Tinkamai parinkti maisto produktai gali pagerinti energijos lygį ir bendrą sveikatą. Be to, aptarsime, kaip sudaryti subalansuotą mitybą atsižvelgiant į individualius poreikius ir gyvenimo būdą.">
+    <img src="/images/p1.png" alt="Profile Icon" class="profile-icon">
+    <div class="post-content">
+        <h3>Šiek tiek apie subalansuotą mitybą...</h3>
+        <p>
+            <strong>Autorius:</strong> Monika Kazlauskaitė<br>
+            <strong>Data:</strong> 2024-05-27
+        </p>
+        <p>Subalansuota mityba yra svarbi ne tik fizinei sveikatai, bet ir gerai savijautai. Šiame įraše sužinosite, kokie maisto produktai turėtų būti jūsų dienos racione...</p>
+        <blockquote>
+            "Tinkamai parinkti maisto produktai gali pagerinti energijos lygį ir bendrą sveikatą."
+        </blockquote>
+        <p><em>Click to read more...</em></p>
+    </div>
+    <!-- Like icon -->
+    <i class="fas fa-heart like-icon" onclick="toggleLike(this, event)"></i>
+</div>
+<!-- Post 3 -->
+<div class="post" onclick="openPostModal(this)" data-title="Efektyvios Treniruotės Namų Sąlygomis" data-author="Daiva Urbonienė" data-date="2024-05-26" data-fulltext="Neturint galimybės lankytis sporto salėje, galima puikiai treniruotis ir namuose. Šiame įraše rasite įvairių pratimų ir patarimų, kaip išlaikyti fizinę formą namuose. Namų treniruotės gali būti tokios pat efektyvios kaip sporto salėje, jei žinote, kaip teisingai jas atlikti. Be to, aptarsime, kaip sukurti tinkamą treniruočių planą namuose, kad pasiektumėte norimus rezultatus. Namų treniruotės taupo laiką ir pinigus, taip pat yra patogios, nereikia lėkti iš namų į sporto salę.">
+    <img src="/images/p1.png" alt="Profile Icon" class="profile-icon">
+    <div class="post-content">
+        <h3>Efektyvios Treniruotės Namų Sąlygomis</h3>
+        <p>
+            <strong>Autorius:</strong> Daiva Urbonienė<br>
+            <strong>Data:</strong> 2024-05-26
+        </p>Neturint galimybės lankytis sporto salėje, galima puikiai treniruotis ir namuose. Šiame įraše rasite įvairių pratimų ir patarimų, kaip išlaikyti fizinę formą namuose...</p>
 <blockquote>
 "Namų treniruotės gali būti tokios pat efektyvios kaip sporto salėje, jei žinote, kaip teisingai jas atlikti."
 </blockquote>
+<p><em>Click to read more...</em></p>
 </div>
 <!-- Like icon -->
- <i class="fas fa-heart like-icon" onclick="toggleLike(this)"></i>
-</div>
-</div>
+<i class="fas fa-heart like-icon" onclick="toggleLike(this, event)"></i>
+
 
 </div>
-
+<!-- Post 4 -->
+<div class="post" onclick="openPostModal(this)" data-title="Rūpestingas Poilsis Po Intensyvių Treniruočių" data-author="Gabija Petrauskaitė" data-date="2024-05-26" data-fulltext="Po intensyvių treniruočių svarbu skirti laiko rūpestingam poilsio procesui. Tai leis jūsų kūnui atsigaivinti, o jums - atgauti jėgas. Šiame įraše sužinosite, kaip tinkamai atlikti poilsio pratimus, kad maksimaliai pasinaudotumėte jų nauda. Poilsio pratimai yra kaip maitinimas jūsų kūnui po didelio fizinio krūvio. Žmonės ne visada teikia dėmesį poilsio reikšmei, tačiau tai svarbu norint išvengti perdegimo ir pertraukti judėjimo traumų.">
+    <img src="/images/p1.png" alt="Profilio Piktograma" class="profile-icon">
+    <div class="post-content">
+        <h3>Rūpestingas Poilsis Po Intensyvių Treniruočių</h3>
+        <p>
+            <strong>Autorius:</strong> Gabija Petrauskaitė<br>
+            <strong>Data:</strong> 2024-05-26
+        </p>
+        <p>Po intensyvių treniruočių svarbu skirti laiko rūpestingam poilsio procesui. Tai leis jūsų kūnui atsigaivinti, o jums - atgauti jėgas...</p>
+        <blockquote>
+            "Poilsio pratimai yra kaip maitinimas jūsų kūnui po didelio fizinio krūvio."
+        </blockquote>
+        <p><em>Click to read more...</em></p>
+    </div>
+    <!-- Like icon -->
+    <i class="fas fa-heart like-icon" onclick="toggleLike(this, event)"></i>
 </div>
+    </div>
+</div>
+
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <!-- Google Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 <script>
-    function toggleLike(icon) {
-        icon.classList.toggle('fas'); // Toggle solid heart icon
-        icon.classList.toggle('far'); // Toggle regular heart icon
+    // Function to open the post modal
+   function openPostModal(post) {
+    var title = post.getAttribute('data-title');
+    var author = post.getAttribute('data-author');
+    var date = post.getAttribute('data-date');
+    var fullText = post.getAttribute('data-fulltext');
+
+    var modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = '<h3>' + title + '</h3>' +
+                          '<p><strong>Autorius:</strong> ' + author + '<br>' +
+                          '<strong>Data:</strong> ' + date + '</p>' +
+                          '<p>' + fullText + '</p>';
+
+    document.getElementById('myModal').style.display = 'flex';
+}
+
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
     }
 </script>
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementsByClassName("add-button")[0];
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-function openModal() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-function closeModal() {
-  modal.style.display = "none";
-}
-
-
-</script>
 
 </body>
 </html>
